@@ -1,0 +1,13 @@
+<p class="ti">Are you sure you want to delete {{ data.ticketRichiedente }}?</p>
+<mat-radio-group aria-label="Select an option" [(ngModel)]="selectedOption">
+  <mat-radio-button [value]="true">Yes</mat-radio-button>
+  <mat-radio-button [value]="false">No</mat-radio-button>
+</mat-radio-group>
+<button
+  mat-raised-button
+  color="primary"
+  class="custom-button"
+  (click)="onConfirm()"
+>
+  Confirm
+</button>

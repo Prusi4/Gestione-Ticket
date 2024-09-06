@@ -1,0 +1,129 @@
+<app-client-navbar></app-client-navbar>
+
+<div *ngIf="errorMessage" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<div class="filter-container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Search here"
+      #input
+    />
+  </mat-form-field>
+</div>
+
+<div class="table-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell [ngClass]="{ 'closed-state': row.stato === 'chiuso' }"*matCellDef="let row; let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- Richiedente Column -->
+    <ng-container matColumnDef="richiedente">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Richiedente</th>
+      <td mat-cell *matCellDef="let row"[ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.richiedente }}</td>
+    </ng-container>
+
+    <!-- Oggetto Column -->
+    <ng-container matColumnDef="oggetto">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Oggetto</th>
+      <td mat-cell *matCellDef="let row"[ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.oggetto }}</td>
+    </ng-container>
+
+    <!-- Priorita Column -->
+    <ng-container matColumnDef="priorita">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Priorita</th>
+      <td mat-cell *matCellDef="let row"[ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.priorita }}</td>
+    </ng-container>
+
+    <!-- Data Creazione Ticket Column -->
+    <ng-container matColumnDef="dataCreazioneTicket">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Data Creazione Ticket
+      </th>
+      <td mat-cell *matCellDef="let row"[ngClass]="{ 'closed-state': row.stato === 'chiuso' }">
+        {{ row.dataCreazioneTicket | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <!-- Testo Column -->
+    <ng-container matColumnDef="testo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Testo</th>
+      <td mat-cell *matCellDef="let row"[ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.testo }}</td>
+    </ng-container>
+
+    <!-- Applicazione Interessata Column -->
+    <ng-container matColumnDef="applicazioneInteressata">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Applicazione Interessata
+      </th>
+      <td mat-cell *matCellDef="let row" [ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.applicazioneInteressata }}</td>
+    </ng-container>
+
+    <!-- Utente Creazione Column -->
+    <ng-container matColumnDef="utenteCreazione">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Utente Creazione
+      </th>
+      <td mat-cell *matCellDef="let row" [ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.utenteCreazione }}</td>
+    </ng-container>
+
+    <!-- Note Column -->
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Note</th>
+      <td mat-cell *matCellDef="let row" [ngClass]="{ 'closed-state': row.stato === 'chiuso' }">{{ row.note }}</td>
+    </ng-container>
+
+    <!-- Stato Column -->
+    <ng-container matColumnDef="stato">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Stato</th>
+      <td
+        mat-cell
+        *matCellDef="let row"
+        [ngClass]="{ 'closed-state': row.stato === 'chiuso' }"
+      >
+        {{ row.stato }}
+      </td>
+    </ng-container>
+
+    <!-- Dettaglio Ticket ID Column -->
+    <ng-container matColumnDef="dettaglio_ticket_id">
+      <th mat-header-cell *matHeaderCellDef>Dettaglio Ticket</th>
+      <td mat-cell *matCellDef="let row">
+        <button
+          mat-raised-button
+          class="custom-button"
+          matTooltip="Watch details ticket"
+          (click)="viewTicketDetails(row.dettaglio_ticket_id)"
+        >
+          <mat-icon>receipt</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Definición de las filas y filas sin datos -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Fila mostrada cuando no hay datos coincidentes -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="11">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+  <!-- Paginador -->
+  <mat-paginator
+    [pageSizeOptions]="[10, 25, 100]"
+    aria-label="Select page of users"
+  ></mat-paginator>
+</div>
+
+<router-outlet></router-outlet>

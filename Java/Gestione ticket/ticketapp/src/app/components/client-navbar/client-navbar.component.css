@@ -1,0 +1,23 @@
+/* navbar.component.css o navbar.component.scss */
+.mat-toolbar {
+    padding: 0; /* Elimina el relleno predeterminado del mat-toolbar */
+    margin: 0; /* Elimina los márgenes predeterminados del mat-toolbar */
+  }
+  
+  .mat-toolbar-row {
+    display: flex; /* Usa flexbox para alinear elementos dentro de mat-toolbar */
+    justify-content: space-between; /* Distribuye los elementos a lo largo del espacio disponible */
+    align-items: center; /* Centra verticalmente los elementos */
+  }
+  
+  .mat-toolbar span {
+    margin-left: 10px; /* Añade un pequeño margen izquierdo a los elementos span */
+  }
+  
+  .mat-toolbar button {
+    margin-left: 10px; /* Añade un pequeño margen izquierdo a los botones */
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto; /* Espaciador flexible para distribuir el espacio entre los elementos */
+  }

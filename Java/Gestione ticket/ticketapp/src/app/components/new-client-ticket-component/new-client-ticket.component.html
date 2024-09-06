@@ -1,0 +1,29 @@
+<form class="example-form" (ngSubmit)="createTicket()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Richiedente</mat-label>
+      <input matInput placeholder="Richiedente" [(ngModel)]="newTicket.richiedente" name="richiedente" required />
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Oggetto</mat-label>
+      <input matInput placeholder="Oggetto" [(ngModel)]="newTicket.oggetto" name="oggetto" required />
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Testo</mat-label>
+      <textarea matInput placeholder="Testo" [(ngModel)]="newTicket.testo" name="testo" required></textarea>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Applicazione Interessata</mat-label>
+      <input matInput placeholder="Applicazione Interessata" [(ngModel)]="newTicket.applicazioneInteressata" name="applicazioneInteressata" required />
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Note</mat-label>
+      <textarea matInput placeholder="Note" [(ngModel)]="newTicket.note" name="note"></textarea>
+    </mat-form-field>
+  
+    <button mat-raised-button class="example-button" type="submit">Create Ticket</button>
+  </form>
+  

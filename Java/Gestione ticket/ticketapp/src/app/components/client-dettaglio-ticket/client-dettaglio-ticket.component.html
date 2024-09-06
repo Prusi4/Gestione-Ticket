@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search here" #input />
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Encabezados de columna -->
+    <ng-container matColumnDef="creatoDa">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Creato da</th>
+      <td mat-cell *matCellDef="let row">{{ row.creatoDa }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataCreazioneTicket">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data Creazione Ticket</th>
+      <td mat-cell *matCellDef="let row">{{ row.dataCreazioneTicket | date: 'dd/MM/yyyy' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="inCaricoA">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>In carico</th>
+      <td mat-cell *matCellDef="let row">{{ row.inCaricoA }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataCarico">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data carico</th>
+      <td mat-cell *matCellDef="let row">{{ row.dataCarico  | date: 'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="modificatoDa">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Modificato da</th>
+      <td mat-cell *matCellDef="let row">{{ row.modificatoDa }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataModificazione">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data modificazione</th>
+      <td mat-cell *matCellDef="let row">{{ row.dataModificazione | date: 'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="chiusoDa">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Chiuso da</th>
+      <td mat-cell *matCellDef="let row">{{ row.chiusoDa }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="motivoDiChiusura">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Motivo chiusura</th>
+      <td mat-cell *matCellDef="let row">{{ row.motivoDiChiusura }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataChiusura">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Data chiusura</th>
+      <td mat-cell *matCellDef="let row">{{ row.dataChiusura  | date: 'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <!-- Asignación de columnas a la tabla -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+    <!-- Fila mostrada cuando no hay datos coincidentes -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">
+        No data matching the filter "{{ input.value }}"
+      </td>
+    </tr>
+  </table>
+
+
+<router-outlet></router-outlet>

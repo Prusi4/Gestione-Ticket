@@ -1,0 +1,33 @@
+.custom-button {
+    background-color: #4c4eaf; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+  
+  .custom-button:hover {
+    background-color: #4c45a0; 
+  }
+
+  .close-button {
+    background-color: #af4c72; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+  
+  .close-button:hover {
+    background-color: #a04554; 
+  }
+
+  .mat-elevation-z8 {
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
+    max-width: 100%; /* Limita el ancho máximo del contenedor */
+    margin-bottom: 20px; /* Ajusta el margen inferior según sea necesario */
+  }

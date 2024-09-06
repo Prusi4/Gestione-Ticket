@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>Ticket App</span>
+    <button mat-icon-button aria-label="New Ticket" (click)="openDialog('500ms', '500ms')" routerLink="/newClientTicket" matTooltip="New Ticket">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    <span>Welcome {{ currentUsername }}</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button (click)="logout()" aria-label="Logout" matTooltip="Logout">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>

@@ -1,0 +1,13 @@
+.ti {
+    font-size: large;
+    color: white;
+  }
+  .custom-button {
+background-color: pink; 
+font-size: 16px; 
+padding: 12px 24px; }
+
+.custom-dialog-content {
+    padding: 20px;
+    font-size: 16px;
+  }

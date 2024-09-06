@@ -1,0 +1,45 @@
+table {
+    width: 100%;
+  }
+  
+  .custom-button {
+    background-color: #36f4db; 
+    color: white; 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+  
+  .custom-button:hover {
+    background-color: #45a0a0; 
+  }
+
+
+  .edit-button {
+    background-color: #36f4db; 
+    color: white; 
+    padding: 8px 16px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+  }
+  
+  .edit-button:hover {
+    background-color: #45a0a0; 
+  }
+
+  .error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.closed-state {
+  opacity: 0.5; /* Aplicar transparencia */
+  transition: opacity 0.3s ease; /* Transición suave */
+}
+  
+  

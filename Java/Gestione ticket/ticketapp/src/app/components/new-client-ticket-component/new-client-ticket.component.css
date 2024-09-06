@@ -1,0 +1,27 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .example-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    display: block; /* Para centrar el botón */
+    margin: 0 auto;
+  }
+  
+  /* Hover y Focus para el botón */
+  .example-button:hover,
+  .example-button:focus {
+    background-color: #45a049; /* Cambio de color en hover/focus */
+  }
